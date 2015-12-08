@@ -8,7 +8,9 @@ A quickstart spring boot gwt application
 Use the GWT console with : 
 - mvn gwt:run
 - mvn gwt:debug
-or simply use mvn install as useal
+or simply use mvn install as usual
+
+Deploy on tomcat 7 from apache.
 
 
 ## What's in the sources

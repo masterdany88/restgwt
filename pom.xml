@@ -1,98 +1,115 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
-	<!-- POM -->
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>fr.ekito.gwt</groupId>
-	<artifactId>gwt-boot</artifactId>
+	<groupId>com.sagar.restgwt</groupId>
+	<artifactId>RestGWT</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>Ekito Spring Boot GWT WebApp</name>
-
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.0.1.RELEASE</version>
-	</parent>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<start-class>fr.ekito.gwt.server.ServerApplication</start-class>
-		<java.version>1.7</java.version>
-
-		<gwtVersion>2.6.0</gwtVersion>
-		<googleGin>2.1.2</googleGin>
-		<outputFolder>${project.build.directory}/${artifactId}</outputFolder>
-	</properties>
-
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<version>${gwt.version}</version>
+			<scope>runtime</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>
-		
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
-			<version>${gwtVersion}</version>
+			<version>${gwt.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.google.gwt.inject</groupId>
-			<artifactId>gin</artifactId>
-			<version>${googleGin}</version>
+			<groupId>org.fusesource.restygwt</groupId>
+			<artifactId>restygwt</artifactId>
+			<version>2.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>jsr311-api</artifactId>
+			<version>1.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework.version}</version>
 		</dependency>
 	</dependencies>
-
-
+	<properties>
+		<basedir>.</basedir>
+		<gwt.version>2.7.0</gwt.version>
+		<java-version>1.7</java-version>
+		<org.springframework.version>3.1.1.RELEASE</org.springframework.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<webappDirectory>${project.build.directory}\${project.build.finalName}</webappDirectory>
+	</properties>
 	<build>
-		<finalName>${project.artifactId}</finalName>
-		<outputDirectory>${outputFolder}/WEB-INF/classes</outputDirectory>
+		<finalName>restgwt</finalName>
+		<outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+			<!-- GWT Maven Plugin -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
-				<version>2.6.0</version>
+				<version>${gwt.version}</version>
 				<executions>
 					<execution>
 						<goals>
 							<goal>compile</goal>
+							<goal>test</goal>
+							<!-- <goal>i18n</goal> <goal>generateAsync</goal> -->
 						</goals>
 					</execution>
 				</executions>
+				<!-- Plugin configuration. There are many available options, see gwt-maven-plugin 
+					documentation at codehaus.org -->
 				<configuration>
-					<runTarget>GwtWebApp.html</runTarget>
-					<hostedWebapp>${outputFolder}</hostedWebapp>
-					<webappDirectory>${outputFolder}</webappDirectory>
+					<runTarget>RestGWT.html</runTarget>
+					<hostedWebapp>${webappDirectory}</hostedWebapp>
 				</configuration>
 			</plugin>
-			<!-- Copy static web files before executing gwt:run -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
+<!-- 			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>${gwt.version}</version>
 				<executions>
 					<execution>
-						<phase>compile</phase>
 						<goals>
-							<goal>exploded</goal>
+							<goal>compile</goal>
+							<goal>test</goal>
+							<goal>generateAsync</goal>
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<webappDirectory>${outputFolder}</webappDirectory>
+					<hostedWebapp>${webappDirectory}</hostedWebapp>
+				</configuration>
+			</plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+					<showWarnings>true</showWarnings>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

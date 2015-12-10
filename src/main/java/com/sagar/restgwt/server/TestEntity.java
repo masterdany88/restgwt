@@ -1,5 +1,6 @@
 package com.sagar.restgwt.server;
 
-public class TestDomain {
+
+public class TestEntity {
 	public String test;
 }

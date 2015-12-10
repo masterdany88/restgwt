@@ -18,30 +18,49 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class RestGWT implements EntryPoint {
 	public void onModuleLoad() {
-		Button button = new Button("Click Me to test testing service");
-		button.addClickHandler(new ClickHandler() {
+		Button getButton = new Button("Click Me to get test entity from testing service");
+		Button setButton = new Button("Click Me to send test entity to testing service");
+		
+		getButton.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
 				TestService.Util.getService().getInfo(
 						new MethodCallback<TestPojo>() {
 							@Override
-							public void onSuccess(Method method,TestPojo response) {
+							public void onSuccess(Method method, TestPojo response) {
 								RootPanel.get().add(new Label(
 										response.id + " " +
-										response.test + " " +
-										response.test2 + " "
+												response.test + " " +
+												response.test2 + " "
 										));
 								
 							}
-
 							@Override
-							public void onFailure(Method method,
-									Throwable exception) {
-								GWT.log("Error");
+							public void onFailure(Method method, Throwable exception) {
+								RootPanel.get().add(new Label("Error getting"));
 							}
 						});
 			}
 		});
-		RootPanel.get().add(button);
+		setButton.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				TestService.Util.getService().setInfo(
+					new MethodCallback<Integer>() {
+						@Override
+						public void onSuccess(Method method, Integer response) {
+							RootPanel.get().add(
+								new Label("Succefully set info. status code: " + response)
+							);
+						}
+						@Override
+						public void onFailure(Method method, Throwable exception) {
+							RootPanel.get().add(new Label("Error setting"));
+						}
+				});
+			}
+		});
+		RootPanel.get().add(getButton);
+		RootPanel.get().add(setButton);
 	}
 }

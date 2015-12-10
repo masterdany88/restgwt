@@ -1,5 +1,9 @@
 package com.sagar.restgwt.client;
 
+import gwt.material.design.client.resources.MaterialResources;
+import gwt.material.design.client.ui.MaterialDatePicker;
+import gwt.material.design.client.ui.MaterialSplashScreen;
+
 import java.util.List;
 
 import org.fusesource.restygwt.client.Defaults;
@@ -10,15 +14,18 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
 
 public class RestGWT implements EntryPoint {
 	public void onModuleLoad() {
 
+		MaterialDatePicker dataPicker = new MaterialDatePicker();
 		Button getButton = new Button("Click Me to get test entity from testing service");
 		Button setButton = new Button("Click Me to send test entity to testing service2");
 		final TestPojo test = new TestPojo(22L, "test1", "test2");
@@ -66,5 +73,11 @@ public class RestGWT implements EntryPoint {
 		});
 		RootPanel.get().add(getButton);
 		RootPanel.get().add(setButton);
+		
+		RootPanel.get().add(dataPicker);
+		
+
+
 	}
+
 }

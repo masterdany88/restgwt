@@ -14,13 +14,13 @@ import org.fusesource.restygwt.client.RestServiceProxy;
 import com.google.gwt.core.client.GWT;
 
 @Path("/service")
-public interface InfoService extends RestService {
+public interface TestService extends RestService {
 	public static class Util {
-		private static InfoService instance;
+		private static TestService instance;
 
-		public static InfoService getService() {
+		public static TestService getService() {
 			if (instance == null) {
-				instance = GWT.create(InfoService.class);
+				instance = GWT.create(TestService.class);
 			}
 			Resource resource = new Resource(GWT.getModuleBaseURL() + "service");
 			((RestServiceProxy) instance).setResource(resource);
@@ -32,5 +32,5 @@ public interface InfoService extends RestService {
 	@Path("/loadInfo")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void getInfo(MethodCallback<OrderConfirmation> callback);
+	public void getInfo(MethodCallback<TestPojo> callback);
 }

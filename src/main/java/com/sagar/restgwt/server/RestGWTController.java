@@ -11,17 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sagar.restgwt.client.OrderConfirmation;
+import com.sagar.restgwt.client.TestPojo;
 
 @Controller
 public class RestGWTController {
 	@RequestMapping(value = "/loadInfo", method = RequestMethod.GET, headers = "Accept=application/json")
-	public @ResponseBody OrderConfirmation handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//GreetingServiceEndpoint endpoint = greetingService.getGreetingServiceEndpointPort();
-		OrderConfirmation confirmation = new OrderConfirmation();
-		//confirmation.message = endpoint.sayHello();
-		confirmation.message = "Hello";
-		confirmation.ready_time = System.currentTimeMillis() + 1000 * 60 * 30;
+	public @ResponseBody TestDomain handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		TestDomain confirmation = new TestDomain();
+		confirmation.test = "Hello";
 		System.out.println("hit server");
 		return confirmation;
 	}

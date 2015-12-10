@@ -18,8 +18,10 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class RestGWT implements EntryPoint {
 	public void onModuleLoad() {
+
 		Button getButton = new Button("Click Me to get test entity from testing service");
-		Button setButton = new Button("Click Me to send test entity to testing service");
+		Button setButton = new Button("Click Me to send test entity to testing service2");
+		final TestPojo test = new TestPojo(22L, "test1", "test2");
 		
 		getButton.addClickHandler(new ClickHandler() {
 			@Override
@@ -28,10 +30,11 @@ public class RestGWT implements EntryPoint {
 						new MethodCallback<TestPojo>() {
 							@Override
 							public void onSuccess(Method method, TestPojo response) {
-								RootPanel.get().add(new Label(
-										response.id + " " +
-												response.test + " " +
-												response.test2 + " "
+								RootPanel.get().add(
+										new Label(
+											response.id + " " +
+											response.test + " " +
+											response.test2 + " "
 										));
 								
 							}
@@ -42,11 +45,12 @@ public class RestGWT implements EntryPoint {
 						});
 			}
 		});
+		RootPanel.get().add(new Label("about to add: " + test.id + " " +  test.test + " " + test.test2));
 		setButton.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
 				TestService.Util.getService().setInfo(
-					new MethodCallback<Integer>() {
+					test, new MethodCallback<Integer>() {
 						@Override
 						public void onSuccess(Method method, Integer response) {
 							RootPanel.get().add(

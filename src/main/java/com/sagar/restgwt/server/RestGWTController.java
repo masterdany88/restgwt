@@ -7,32 +7,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.sagar.restgwt.shared.Routing;
 
 
 
 @Controller
 public class RestGWTController {
 	
-	@RequestMapping(value = "/setInfo", method = RequestMethod.GET, headers = "Accept=application/json")
+	@RequestMapping(value = "/setInfo", method = RequestMethod.POST, headers = "Accept=application/json")
 	public @ResponseBody int setInfo(HttpServletRequest request, HttpServletResponse response, @RequestBody TestEntity test) throws ServletException, IOException {
-		System.out.println("hit server for setting");
-		System.out.println(test.id + " " + test.test2 + " " + test.test);
+		System.out.println("Hit server for setting");
+		System.out.println(test.id + " " + test.test + " " + test.test2);
 		return 1;
 	}
 	
-	@RequestMapping(value = "/getInfo", method = RequestMethod.GET, headers = "Accept=application/json")
-	public @ResponseBody TestEntity getInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@RequestMapping(value = Routing.getInfo, method = RequestMethod.GET, headers = "Accept=application/json")
+	//public @ResponseBody TestEntity getInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public @ResponseBody TestEntity getInfo() throws ServletException, IOException {
 		TestEntity test = new TestEntity();
 		test.id = 1L;
 		test.test = "Hello";
 		test.test2 = "Hello";
-		System.out.println("hit server for getting");
-		System.out.println(request.toString());
-		System.out.println(response.toString());
+		System.out.println("Hit server for getting");
 		return test;
 	}
 }

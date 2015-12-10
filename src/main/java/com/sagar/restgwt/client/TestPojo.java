@@ -8,6 +8,15 @@ public class TestPojo {
 	public Long id;
 	public String test;
 	public String test2;
+
+	public TestPojo() {
+		super();
+	}
+	public TestPojo(Long id, String string, String string2) {
+		this.id = id;
+		this.test = string;
+		this.test2 = string2;
+	}
 	/**
      * Example of how to create an instance of a JsonEncoderDecoder for a data
      * transfer object.

@@ -29,7 +29,7 @@ public interface TestService extends RestService {
 	}
 
 	@GET
-	@Path("/loadInfo")
+	@Path("/getInfo")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public void getInfo(MethodCallback<TestPojo> callback);

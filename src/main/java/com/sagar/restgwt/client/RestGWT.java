@@ -26,7 +26,12 @@ public class RestGWT implements EntryPoint {
 						new MethodCallback<TestPojo>() {
 							@Override
 							public void onSuccess(Method method,TestPojo response) {
-								RootPanel.get().add(new Label(response.toString()));
+								RootPanel.get().add(new Label(
+										response.id + " " +
+										response.test + " " +
+										response.test2 + " "
+										));
+								
 							}
 
 							@Override

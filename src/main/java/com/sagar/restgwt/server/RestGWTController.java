@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class RestGWTController {
-	@RequestMapping(value = "/loadInfo", method = RequestMethod.GET, headers = "Accept=application/json")
+	@RequestMapping(value = "/getInfo", method = RequestMethod.GET, headers = "Accept=application/json")
+	
 	public @ResponseBody TestEntity handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		TestEntity confirmation = new TestEntity();
-		confirmation.test = "Hello";
+		TestEntity test = new TestEntity();
+		test.id = 1L;
+		test.test = "Hello";
+		test.test2 = "Hello";
 		System.out.println("hit server");
-		return confirmation;
+		return test;
 	}
 }

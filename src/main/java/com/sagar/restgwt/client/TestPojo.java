@@ -17,18 +17,28 @@ public class TestPojo {
 		this.test = string;
 		this.test2 = string2;
 	}
-	/**
-     * Example of how to create an instance of a JsonEncoderDecoder for a data
-     * transfer object.
-     */
-    public interface TestPojoJED extends JsonEncoderDecoder<TestPojo> {}
+
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getTest() {
+		return test;
+	}
+	public void setTest(String test) {
+		this.test = test;
+	}
+	public String getTest2() {
+		return test2;
+	}
+	public void setTest2(String test2) {
+		this.test2 = test2;
+	}
     
-//    @Override
-//    public String toString() {
-//        if (GWT.isClient()) {
-//            TestPojoJED jed = GWT.create(TestPojoJED.class);
-//            return jed.encode(this).toString();
-//        }
-//        return super.toString();
-//    }
+    @Override
+    public String toString() {
+    	return this.id + " " + this.test + " " + this.test2 ;
+    }
 }

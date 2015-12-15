@@ -22,7 +22,7 @@ public class RestGWTController {
 	
 	@RequestMapping(value = "/setInfo", method = RequestMethod.POST, headers = "Accept=application/json")
 	public @ResponseBody int setInfo(HttpServletRequest request, HttpServletResponse response, @RequestBody TestEntity test) throws ServletException, IOException {
-		System.out.println("Hit server for setting");
+		System.out.println("Hit server for setting _1");
 		System.out.println(test.getId() + " " + test.getTest() + " " + test.getTest2());
 		return 1;
 	}
@@ -34,7 +34,7 @@ public class RestGWTController {
 		test.setId(1L);
 		test.setTest("Hello");
 		test.setTest2("Hello");
-		System.out.println("Hit server for getting");
+		System.out.println("Hit server for getting _1");
 		return test;
 	}
 }

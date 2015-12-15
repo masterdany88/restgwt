@@ -16,61 +16,12 @@ import com.google.gwt.event.dom.client.ClickHandler;
 
 public class RestGWT implements EntryPoint {
 
-	interface Driver extends SimpleBeanEditorDriver<TestPojo, TestEditor> {}
-
-	Driver driver = GWT.create(Driver.class);
-	TestPojo test = new TestPojo(3L, "test", "test2");
-	
-	
+	@Override
 	public void onModuleLoad() {
-		
-		TestEditor editor = new TestEditor();
-		driver.initialize(editor);
-		driver.edit(test);
-		
-		editor.edit(test);
-		RootPanel.get().add(editor);
-		MaterialButton s = new MaterialButton(ButtonType.RAISED, "Send to server", null);
-		RootPanel.get().add(s);
-		
-		
-		
-		s.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				RootPanel.get().add(new Label());
-				save();
-			}
-			
-		});
-		Rest.test();
-		
+		new TestForm();
+		new TestForm();
 		
 	}
-	
-	 // Called by some UI action
-	  void save() {
-	    TestPojo edited = driver.flush();
-	    if (driver.hasErrors()) {
-	      // A sub-editor reported errors
-	    }
-	    doSomethingWithEditedPerson(edited);
-	  }
 
-	private void doSomethingWithEditedPerson(TestPojo edited) {
-		TestService.Util.getService().setInfo(
-				edited, new MethodCallback<Integer>() {
-					@Override
-					public void onSuccess(Method method, Integer response) {
-						RootPanel.get().add(
-							new Label("Succefully set info. status code: " + response)
-						);
-					}
-					@Override
-					public void onFailure(Method method, Throwable exception) {
-						RootPanel.get().add(new Label("Error setting"));
-					}
-			});		
-	}
+	
 }

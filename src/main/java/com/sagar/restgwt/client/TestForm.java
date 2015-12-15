@@ -55,7 +55,7 @@ public class TestForm {
 			}
 			
 		});
-		Rest.test();
+		
 		
 		
 	}

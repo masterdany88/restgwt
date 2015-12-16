@@ -167,7 +167,7 @@ public class ApplicationView extends Composite {
 		RootPanel.get().add(fab);
 		RootPanel.get().add(footer);
 		
-		
+		//new MaterialSideProfile();
 		
 		
 	}

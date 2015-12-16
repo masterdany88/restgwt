@@ -14,12 +14,13 @@ import com.google.gwt.editor.client.SimpleBeanEditorDriver;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.sagar.restgwt.client.ui.ApplicationView;
+import com.sagar.restgwt.client.ui.ApplicationView2;
 
 public class RestGWT implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
-		new ApplicationView();
+		new ApplicationView2();
 		//new TestForm();
 	}
 

@@ -12,24 +12,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.sagar.restgwt.shared.Routing;
 
 
 
-@Controller
+@RestController()
+@RequestMapping("info")
 public class RestGWTController {
 	
-	@RequestMapping(value = "/setInfo", method = RequestMethod.POST, headers = "Accept=application/json")
-	public @ResponseBody int setInfo(HttpServletRequest request, HttpServletResponse response, @RequestBody TestEntity test) throws ServletException, IOException {
+	@RequestMapping(value = Routing.TestService.getInfo, method = RequestMethod.POST)
+	public @ResponseBody int setInfo(@RequestBody TestEntity test) {
 		System.out.println("Hit server for setting _1");
 		System.out.println(test.getId() + " " + test.getTest() + " " + test.getTest2());
 		return 1;
 	}
 	
-	@RequestMapping(value = Routing.getInfo, method = RequestMethod.GET, headers = "Accept=application/json")
-	//public @ResponseBody TestEntity getInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	public @ResponseBody TestEntity getInfo() throws ServletException, IOException {
+	@RequestMapping(value = Routing.TestService.getInfo, method = RequestMethod.GET)
+	public @ResponseBody TestEntity getInfo() {
 		TestEntity test = new TestEntity();
 		test.setId(1L);
 		test.setTest("Hello");

@@ -29,6 +29,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class TestForm {
 	interface Driver extends SimpleBeanEditorDriver<TestPojo, TestEditor> {}
+    private static final TestService testService = GWT.create(TestService.class);
 
 	Driver driver = GWT.create(Driver.class);
 	TestPojo test = new TestPojo(3L, "test", "test2");
@@ -70,7 +71,7 @@ public class TestForm {
 	  }
 
 	private void doSomethingWithEditedPerson(TestPojo edited) {
-		TestService.Util.getService().setInfo(
+		testService.setInfo(
 				edited, new MethodCallback<Integer>() {
 					@Override
 					public void onSuccess(Method method, Integer response) {

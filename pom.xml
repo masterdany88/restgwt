@@ -69,18 +69,30 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${org.springframework.version}</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>${org.springframework.version}</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${org.springframework.version}</version>
+			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+
+
 		<!-- Spring ends -->
 
 		<dependency>
@@ -232,6 +244,9 @@
 		</dependency>
 
 	</dependencies>
+
+
+
 	<properties>
 		<basedir>.</basedir>
 		<gwt.version>2.7.0</gwt.version>
@@ -239,15 +254,19 @@
 		<hibernate.version>4.3.7.Final</hibernate.version>
 		<hibernate-validator.version>4.3.2.Final</hibernate-validator.version>
 		<slf4j.version>1.6.4</slf4j.version>
-		<org.springframework.version>4.2.1.RELEASE</org.springframework.version>
-		<spring-security.version>4.0.2.RELEASE</spring-security.version>
+		<spring.version>4.2.1.RELEASE</spring.version>
+		<spring-security.version>4.0.3.RELEASE</spring-security.version>
+		<spring-data.version>1.9.1.RELEASE</spring-data.version>
 		<mysql.connector.version>5.1.36</mysql.connector.version>
 
 
-		<!-- <org.springframework.version>3.1.1.RELEASE</org.springframework.version> -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<webappDirectory>${project.build.directory}\${project.build.finalName}</webappDirectory>
 	</properties>
+
+
+
+
 	<build>
 		<finalName>restgwt</finalName>
 		<outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>

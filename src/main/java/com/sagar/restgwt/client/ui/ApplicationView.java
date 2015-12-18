@@ -80,12 +80,15 @@ public class ApplicationView extends Composite {
 	
 	public ApplicationView() {
 		navBrand.setText("CMS");
+		navBrand.setWaves(WavesType.LIGHT);
 		navBrand.setHref("");
 		brandToolTip.setWidget(navBrand);
 		brandToolTip.setText("CMS");
 		
 		navSec.setFloat(Style.Float.RIGHT);
 		navBar.setActivates(sideNavId);
+		navBar.setWaves(WavesType.DEFAULT);
+
 		navBar.add(navBrand);
 		navBar.add(navSec);
 		navBar.setBackgroundColor("blue");

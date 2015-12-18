@@ -7,10 +7,13 @@
 	<inherits name='com.google.gwt.editor.Editor' />
 	<inherits name='com.google.gwt.user.theme.standard.Standard' />
 	<inherits name='com.google.gwt.user.User' />
-	<inherits name="gwt.material.design.GwtMaterialWithJQueryDebug"/>
+	
+	<inherits name="gwt.material.design.GwtMaterialWithJQueryDebug" />
 	<!-- <inherits name='gwt.material.design.GwtMaterialWithJQuery' /> -->
 	<inherits name="gwt.material.design.GwtMaterialDesignBasic" />
 	<inherits name="gwt.material.design.themes.GwtMaterialThemeBlue" />
+
+
 
 	<!-- Specify the app entry point class. -->
 	<entry-point class='com.sagar.restgwt.client.RestGWT' />
@@ -18,4 +21,7 @@
 	<!-- Specify the paths for translatable code -->
 	<source path='client' />
 	<source path='shared' />
+	
+	<add-linker name="xsiframe" />
+	
 </module>

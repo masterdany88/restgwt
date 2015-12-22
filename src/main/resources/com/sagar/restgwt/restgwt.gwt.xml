@@ -7,7 +7,7 @@
 	<inherits name='com.google.gwt.editor.Editor' />
 	<inherits name='com.google.gwt.user.theme.standard.Standard' />
 	<inherits name='com.google.gwt.user.User' />
-	
+	<inherits name='com.google.gwt.maps.Maps' />
 	<inherits name="gwt.material.design.GwtMaterialWithJQueryDebug" />
 	<!-- <inherits name='gwt.material.design.GwtMaterialWithJQuery' /> -->
 	<inherits name="gwt.material.design.GwtMaterialDesignBasic" />

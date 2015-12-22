@@ -14,6 +14,12 @@
 		</dependency>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-dev</artifactId>
+			<version>${gwt.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
 			<version>${gwt.version}</version>
 			<scope>provided</scope>
@@ -21,12 +27,12 @@
 		<dependency>
 			<groupId>com.github.gwtmaterialdesign</groupId>
 			<artifactId>gwt-material</artifactId>
-			<version>1.4</version>
+			<version>${gwtmaterialdesign.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.github.gwtmaterialdesign</groupId>
 			<artifactId>gwt-material-themes</artifactId>
-			<version>1.4</version>
+			<version>${gwtmaterialdesign.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.fusesource.restygwt</groupId>
@@ -89,6 +95,16 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
 			<version>${spring-security.version}</version>
 		</dependency>
 
@@ -258,6 +274,7 @@
 	<properties>
 		<basedir>.</basedir>
 		<gwt.version>2.7.0</gwt.version>
+		<gwtmaterialdesign.version>1.4</gwtmaterialdesign.version>
 		<java-version>1.7</java-version>
 		<hibernate.version>4.3.7.Final</hibernate.version>
 		<hibernate-validator.version>4.3.2.Final</hibernate-validator.version>

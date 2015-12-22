@@ -41,20 +41,20 @@ public class RestGWT implements EntryPoint {
 		ss.add(mt);
 		ss.setBackgroundColor("blue");
 		ss.setTextAlign(TextAlign.CENTER);
-		ss.show();
+		//ss.show();
 		//new TestForm();
 		//RootPanel.get().add(new ApplicationView());   
 		Timer t = new Timer() {
 			@Override
 			public void run() {
 				ss.hide();
-				RootPanel.get().add(new ApplicationView2());
-				//RootPanel.get().add(new MaterialLogin());
-				//RootPanel.get().add(new Map());
 			}
 		};
 		t.schedule(1000);
 
+		RootPanel.get().add(new ApplicationView2());
+		RootPanel.get().add(new MaterialLogin());
+		RootPanel.get().add(new Map());
 		
 		
 

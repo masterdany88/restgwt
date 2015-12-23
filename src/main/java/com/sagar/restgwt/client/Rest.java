@@ -15,14 +15,17 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.sagar.restgwt.shared.Routing;
 
 public class Rest {
     private static final TestService testService = GWT.create(TestService.class);
 
-	public void test() {
+	public Rest() {
 		MaterialButton getButton = new MaterialButton(ButtonType.RAISED, "Click Me to get test entity from testing service", null);
 		MaterialButton setButton = new MaterialButton(ButtonType.RAISED, "Click Me to send test entity to testing service2",null);
-		final TestPojo test = new TestPojo(null, "test1", "test2");
+		RootPanel.get().add(new Label(Routing.TestService.setInfo));
+		RootPanel.get().add(new Label(Routing.TestService.getInfo));
+		final TestPojo test = new TestPojo(777L, "test1", "test2");
 		
 		getButton.addClickHandler(new ClickHandler() {
 			@Override

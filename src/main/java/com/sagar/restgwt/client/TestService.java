@@ -10,9 +10,10 @@ import org.fusesource.restygwt.client.RestService;
 
 import com.sagar.restgwt.shared.Routing;
 
-@Path(Routing.testService)
+@Path("services")
 public interface TestService extends RestService {
 	@GET
+	//@Path("test")
 	@Path(Routing.TestService.getInfo)
 	public void getInfo(MethodCallback<TestPojo> test);
 

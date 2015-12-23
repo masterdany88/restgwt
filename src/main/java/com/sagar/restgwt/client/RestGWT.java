@@ -20,6 +20,7 @@ import com.google.gwt.core.shared.GWT;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.sagar.restgwt.client.ui.ApplicationView;
 import com.sagar.restgwt.client.ui.ApplicationView2;
 import com.sagar.restgwt.client.ui.ConfirmModal;
 import com.sagar.restgwt.client.ui.MaterialLogin;
@@ -42,8 +43,6 @@ public class RestGWT implements EntryPoint {
 		ss.setBackgroundColor("blue");
 		ss.setTextAlign(TextAlign.CENTER);
 		//ss.show();
-		//new TestForm();
-		//RootPanel.get().add(new ApplicationView());   
 		Timer t = new Timer() {
 			@Override
 			public void run() {
@@ -52,9 +51,13 @@ public class RestGWT implements EntryPoint {
 		};
 		t.schedule(1000);
 
-		RootPanel.get().add(new ApplicationView2());
-		RootPanel.get().add(new MaterialLogin());
-		RootPanel.get().add(new Map());
+		//RootPanel.get().add(new ApplicationView2());
+		new Rest();
+		
+		//new TestForm();
+		//RootPanel.get().add(new ApplicationView());   
+		//RootPanel.get().add(new MaterialLogin());
+		//RootPanel.get().add(new Map());
 		
 		
 

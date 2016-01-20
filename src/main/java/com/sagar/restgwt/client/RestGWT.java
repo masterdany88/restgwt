@@ -28,10 +28,11 @@ import com.sagar.restgwt.client.ui.MaterialLogin;
 
 
 
-public class RestGWT implements EntryPoint {
+//public class RestGWT implements EntryPoint {
+public class RestGWT {
 
-	@Override
-	public void onModuleLoad() {
+	//@Override
+	public static void onModuleLoad2() {
 		final MaterialSplashScreen ss = new MaterialSplashScreen();
 		RootPanel.get().add(ss);
 		

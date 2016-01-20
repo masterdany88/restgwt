@@ -2,10 +2,13 @@
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.7.0//EN"
   "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
 <module rename-to='restgwt'>
+    <!-- GinUiBinder allows injecting widgets in UiBinder -->
+    <inherits name="com.google.gwt.uibinder.GinUiBinder"/>
+    <inherits name="com.gwtplatform.mvp.MvpWithEntryPoint"/>
 	<!-- Inherit the core Web Toolkit stuff. -->
 	<inherits name='org.fusesource.restygwt.RestyGWT' />
 	<inherits name='com.google.gwt.editor.Editor' />
-	<inherits name='com.google.gwt.user.theme.standard.Standard' />
+	<!-- <inherits name='com.google.gwt.user.theme.standard.Standard' /> -->
 	<inherits name='com.google.gwt.user.User' />
 	<inherits name='com.google.gwt.maps.Maps' />
 	<inherits name="gwt.material.design.GwtMaterialWithJQueryDebug" />
@@ -16,12 +19,19 @@
 
 
 	<!-- Specify the app entry point class. -->
-	<entry-point class='com.sagar.restgwt.client.RestGWT' />
+	<!-- <entry-point class='com.sagar.restgwt.client.RestGWT' /> -->
 	<set-property name="user.agent" value="safari" />
 	<!-- Specify the paths for translatable code -->
 	<source path='client' />
 	<source path='shared' />
 	
-	<add-linker name="xsiframe" />
+	<!-- <add-linker name="xsiframe" /> -->
 	
+	
+
+
+    <!-- Specify the paths for translatable code                    -->
+    <set-configuration-property name="gin.ginjector.modules"    value="com.sagar.restgwt.client.gin.ClientModule"/>
+    <set-configuration-property name="gin.ginjector.extensions" value="com.sagar.restgwt.client.gin.GinjectorExtension"/>
+    <set-configuration-property name="CssResource.enableGss" value="true"/>
 </module>

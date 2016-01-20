@@ -6,6 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<dependencies>
+		<!-- GWT -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-servlet</artifactId>
@@ -24,6 +25,21 @@
 			<version>${gwt.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!-- GWTP -->
+		<dependency>
+			<groupId>com.gwtplatform</groupId>
+            <artifactId>gwtp-mvp-client</artifactId>
+            <version>${gwtp.version}</version>
+            <scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.gwtplatform.extensions</groupId>
+			<artifactId>ginuibinder</artifactId>
+			<version>${gwt.version}-SNAPSHOT</version>
+		</dependency>
+		
+		<!-- GWT MaterialDesign -->
 		<dependency>
 			<groupId>com.github.gwtmaterialdesign</groupId>
 			<artifactId>gwt-material</artifactId>
@@ -34,6 +50,8 @@
 			<artifactId>gwt-material-themes</artifactId>
 			<version>${gwtmaterialdesign.version}</version>
 		</dependency>
+
+		<!-- RestyGWT -->
 		<dependency>
 			<groupId>org.fusesource.restygwt</groupId>
 			<artifactId>restygwt</artifactId>
@@ -70,8 +88,10 @@
 			<artifactId>jackson-annotations</artifactId>
 			<version>2.6.4</version>
 		</dependency>
-		<!-- Spring -->
 
+
+        
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -108,8 +128,6 @@
 			<version>${spring-security.version}</version>
 		</dependency>
 
-
-		<!-- Spring ends -->
 
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
@@ -155,7 +173,6 @@
 			<version>0.9.1</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- GWTBootstrap3 ends -->
 
 
 
@@ -191,7 +208,6 @@
 			<artifactId>hibernate-jpa-2.0-api</artifactId>
 			<version>1.0.0.Final</version>
 		</dependency>
-		<!-- DB related dependencies ends -->
 
 		<!-- JPA model generator dependencies -->
 		<dependency>
@@ -199,7 +215,6 @@
 			<artifactId>hibernate-jpamodelgen</artifactId>
 			<version>5.0.2.Final</version>
 		</dependency>
-		<!-- JPA model generator dependencies ends -->
 
 		<!-- Validation -->
 		<dependency>
@@ -212,7 +227,6 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>${hibernate-validator.version}</version>
 		</dependency>
-		<!-- Validation ends -->
 
 		<!-- Logging -->
 		<dependency>
@@ -226,7 +240,6 @@
 			<version>${slf4j.version}</version>
 		</dependency>
 
-		<!-- Logging ends -->
 
 		<!-- Custom formats -->
 		<dependency>
@@ -239,7 +252,6 @@
 			<artifactId>usertype.extended</artifactId>
 			<version>3.2.0.GA</version>
 		</dependency>
-		<!-- Custom formats ends -->
 
 
 
@@ -250,8 +262,11 @@
 			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- Tests ends -->
-
+        <dependency>
+            <groupId>org.jukito</groupId>
+            <artifactId>jukito</artifactId>
+            <version>${jukito.version}</version>
+        </dependency>
 
 
 		<dependency>
@@ -260,12 +275,12 @@
 			<version>3.0</version>
 		</dependency>
 
-<!-- GWT Maps API V3 -->
-<dependency>
-    <groupId>com.github.branflake2267</groupId>
-    <artifactId>gwt-maps-api</artifactId>
-    <version>3.10.0-alpha-7</version>
-</dependency>
+		<!-- GWT Maps API V3 -->
+		<dependency>
+			<groupId>com.github.branflake2267</groupId>
+			<artifactId>gwt-maps-api</artifactId>
+			<version>3.10.0-alpha-7</version>
+		</dependency>
 
 
 	</dependencies>
@@ -275,6 +290,10 @@
 		<basedir>.</basedir>
 		<gwt.version>2.7.0</gwt.version>
 		<gwtmaterialdesign.version>1.4</gwtmaterialdesign.version>
+        <gwtp.version>1.5</gwtp.version>
+        <gin.version>2.1.2</gin.version>
+        <jukito.version>1.4</jukito.version>
+        
 		<java-version>1.7</java-version>
 		<hibernate.version>4.3.7.Final</hibernate.version>
 		<hibernate-validator.version>4.3.2.Final</hibernate-validator.version>

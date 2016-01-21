@@ -5,6 +5,31 @@
 	<artifactId>RestGWT</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+
+
+	<properties>
+		<basedir>.</basedir>
+		<gwt.version>2.7.0</gwt.version>
+		<gwtmaterialdesign.version>1.4</gwtmaterialdesign.version>
+        <gwtp.version>1.5</gwtp.version>
+        <gin.version>2.1.2</gin.version>
+        <jukito.version>1.4</jukito.version>
+        
+		<java-version>1.7</java-version>
+		<hibernate.version>4.3.7.Final</hibernate.version>
+		<hibernate-validator.version>4.3.2.Final</hibernate-validator.version>
+		<slf4j.version>1.6.4</slf4j.version>
+		<spring.version>4.2.1.RELEASE</spring.version>
+		<spring-security.version>4.0.3.RELEASE</spring-security.version>
+		<spring-data.version>1.9.1.RELEASE</spring-data.version>
+		<mysql.connector.version>5.1.36</mysql.connector.version>
+
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<webappDirectory>${project.build.directory}\${project.build.finalName}</webappDirectory>
+	</properties>
+	
+
 	<dependencies>
 		<!-- GWT -->
 		<dependency>
@@ -286,27 +311,7 @@
 	</dependencies>
 
 
-	<properties>
-		<basedir>.</basedir>
-		<gwt.version>2.7.0</gwt.version>
-		<gwtmaterialdesign.version>1.4</gwtmaterialdesign.version>
-        <gwtp.version>1.5</gwtp.version>
-        <gin.version>2.1.2</gin.version>
-        <jukito.version>1.4</jukito.version>
-        
-		<java-version>1.7</java-version>
-		<hibernate.version>4.3.7.Final</hibernate.version>
-		<hibernate-validator.version>4.3.2.Final</hibernate-validator.version>
-		<slf4j.version>1.6.4</slf4j.version>
-		<spring.version>4.2.1.RELEASE</spring.version>
-		<spring-security.version>4.0.3.RELEASE</spring-security.version>
-		<spring-data.version>1.9.1.RELEASE</spring-data.version>
-		<mysql.connector.version>5.1.36</mysql.connector.version>
 
-
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<webappDirectory>${project.build.directory}\${project.build.finalName}</webappDirectory>
-	</properties>
 
 
 
